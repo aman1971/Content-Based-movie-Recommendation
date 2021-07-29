@@ -1,1 +1,1 @@
-web gunicorn cinemaflix:app
+web: gunicorn cinemaflix:app
