@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movieflix</title>
+    <link rel="stylesheet" href="../static/cinemaflix_detail.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <link rel="stylesheet"
+        href="	https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="	https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js">
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+    </script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+
+
+</head>
+
+<body class="detail_body">
+    <section class="sec">
+        <div class="head container">
+            <h1 class="text-center text-light">Welcome to Cinemaflix</h1>
+        </div>
+        <div class="form-group shadow-textarea">
+            <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
+                placeholder="Enter the moviename" required="required">
+            <button class="enter-btn btn  btn-primary  movie-button"
+                style="border-radius: 10%; box-shadow: 1px 1px 1px 1px black;" disabled="true">Enter</button>
+        </div>
+        <div class="fail text-center container text-white">
+            <h2>result not found</h2>
+        </div>
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
+    <div class="loading"></div>
+    <div class="result"></div>
+
+    <script src="../static/cinemaflix_home.js"></script>
+</body>
+
+</html>
+
+<!--
+            <iframe width="600" height="500" src="https://www.youtube.com/embed/9tNZPa63N2A">
+</iframe>-->

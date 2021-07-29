@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  <link rel="stylesheet" href="../static/practice2.4.css">-->
+</head>
+
+<body>
+    <section class="corrected-movie" style="position: relative; top: 100px;">
+        <div class="container corrected-card">
+            {% for title,detail in corrected_movie.items() %}
+            <div class="corrected-detail">
+                <div class="corrected-img"><a href='javascript:;' onclick='recommend_movie(this);'
+                        title="{{title}}"><img src="{{detail[0]}}" style="position: relative;height: 250px;"></a></div>
+                <div style="position: relative;left: 150px;width: 60%;">
+                    <h2><span class="bg-primary text-dark">{{title}}</span></h2>
+                    <h4 style="color: cornsilk;">{{detail[1][:200]}}....</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript">
+        var film = {{ movie_list | tojson}};
+    </script>
+</head>
+
+<body>
+    <section class="sec">
+        <div class="head container">
+            <h1 class="text-center text-light">Welcome to Cinemaflix</h1>
+        </div>
+        <div class="form-group ui-widget  shadow-textarea">
+            <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
+                placeholder="Enter the moviename" required="required">
+            <button class="enter-btn btn  btn-primary  movie-button"
+                style="border-radius: 10%; box-shadow: 1px 1px 1px 1px black;" disabled="true">Enter</button>
+        </div>
+        <div class="fail text-center container text-white">
+            <h2>result not found</h2>
+        </div>
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
+
+    <div class="loading"></div>
+    <div class="result"></div>
+    <section class="trend">
+        <h1 class="text-center text-dark">Trending Movies</h1>
+        <div class="container">
+            <div class="row trending_row">
+                {% for title,poster in trend_movie.items() %}
+                <div class="card trending_card text-center">
+                    <img class="im" src="{{poster}}">
+                    <h4 class="card-title "> {{title}}</h4>
+                    <button class="trend-b btn recomend_btn btn-primary btn-sm" title="{{title}}"
+                        onclick="recommend_movie(this)">click
+                        Here</button>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </section>
+    <script src="../static/cinemaflix_main.js"></script>
+
+
+</body>
+
+</html>
