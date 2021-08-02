@@ -10,13 +10,14 @@
 <body>
     <section class="sec">
         <div class="head container">
-            <h1 class="text-center text-light">Welcome to Cinemaflix</h1>
+            <h1 class="text-center text-light" style="font-family: cursive;">Welcome to Cinemaflix</h1>
         </div>
         <div class="form-group ui-widget  shadow-textarea">
             <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
                 placeholder="Enter the moviename" required="required">
-            <button class="enter-btn btn  btn-primary  movie-button"
-                style="border-radius: 10%; box-shadow: 1px 1px 1px 1px black;" disabled="true">Enter</button>
+            <button class="enter-btn btn   movie-button"
+                style="border-radius: 10%; box-shadow: 1px 1px 1px 1px black;background-color: blueviolet;"
+                disabled="true">Enter</button>
         </div>
         <div class="fail text-center container text-white">
             <h2>result not found</h2>
@@ -37,9 +38,10 @@
                 <div class="card trending_card text-center">
                     <img class="im" src="{{poster}}">
                     <h4 class="card-title "> {{title}}</h4>
-                    <button class="trend-b btn recomend_btn btn-primary btn-sm" title="{{title}}"
-                        onclick="recommend_movie(this)">click
-                        Here</button>
+                    <div class="trend-btn" style="position: relative;z-index: 9;"><button
+                            class="trend-b btn recomend_btn btn-sm" style="background-color: blueviolet;"
+                            title="{{title}}" onclick="recommend_movie(this)">click
+                            Here</button></div>
                 </div>
                 {% endfor %}
 
@@ -47,6 +49,19 @@
         </div>
 
     </section>
+
+    <div class="bottom-box text-light">
+
+        <div style="position: relative;text-align: center;">
+            <span class="bottom-icon">Created by<span class="badge badge-pill"
+                    style="background-color: blueviolet;">Aman</span></span>
+            <a class="bottom-icon" href="https://github.com/aman1971/Content-Based-movie-Recommendation"><img
+                    src="https://img.icons8.com/nolan/64/github.png" /></a>
+            <a class="bottom-icon" href="https://linkedin.com/in/aman-kumar-3394b81a0"><img
+                    src="https://img.icons8.com/clouds/100/000000/linkedin.png" /></a>
+        </div>
+
+    </div>
     <script src="../static/cinemaflix_main.js"></script>
 
 

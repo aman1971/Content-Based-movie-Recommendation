@@ -3,43 +3,16 @@
     padding: 0;
 }
 
+html
+{
+    font-size: 10px;
+}
+
 .detail_body1
 {
   background-image: url("./assets/Netflix-background_1.jpg");
 }
 
-/*#loading {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #fff url('./assets/coffe_load.gif') no-repeat center center;
-    z-index: 9999;
-    }*/
-
-/*.form-group
-{
-    
-    text-align: center;
-    position: relative;
-    top: 50px;
-    width: 60%;
-   margin: 0 auto;
-}
-
-.movie
-{
-    text-align: center;
-    position: relative;
-    
-}
-
-.movie:hover
-{
-    transform: scale(1.2);
-    border-radius: 50px;
-    box-shadow: 5px 5px 5px 10px rgba(0, 0, 0, 0.496);
-    border: 1px solid black;
-}*/
 
 .btn
 {
@@ -60,11 +33,16 @@
     opacity: 1;
 }
 
+.overlay { position: absolute; top: 0; left: 0; right:0; bottom:0; display: block; background-color: rgba(0,0,0,0.5); }
+
+
 .top-poster:hover
 {
     opacity: 0.8;
-    transform: scale(1.5, 1.5);
-}
+    transform: scale(1.1, 1.1);
+
+ }
+
 
 .cimg
 {
@@ -73,6 +51,8 @@
     width: 400px;
     height: 400px;
     border-radius: 10px;
+    position: relative;
+    z-index: 9;
 }
 
 .detail-h
@@ -207,15 +187,78 @@ a.collapsed .readLess {
      top: 0px;
  }
 
+.bottom-box
+ {
+     background-color: black;
+     position: fixed;
+     z-index: 99;
+     width: 100%;
+     bottom: 0px;
+ }
+ .bottom-icon
+ {
+     margin: 20px;
+ }
+
  .video-icon
  {
     transform: translateY(-200px);
     color: darkviolet;
     position: relative;
     left: 40%;
-    z-index: 1;
+    z-index: 99;
  }
 
+ .cast-content
+ {
+     height: 460px;
+    font-size: 10px; 
+ }
+
+ .cast-card
+ {
+     width: 25em;
+     height: 42em;
+ }
+
+ .cast-img
+ {
+     height: 26em;
+ }
+
+ .cast-body
+ {
+     height: 16em;
+ }
+
+ .description-content
+ {
+    position: absolute;
+    background-color: blueviolet;
+    overflow-y: scroll;
+    width: 80rem;
+    height: 60rem;
+ }
+
+ .trailer-content
+ {
+    left: -16rem;height: 60rem;
+ }
+
+ .youtube
+ {
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+ }
 
  @media screen and (max-width:800px) {
      .movie-detail
@@ -226,6 +269,47 @@ a.collapsed .readLess {
      {
          margin-left: 0%;
      }
+     .cimg
+     {
+         width: 300px;
+     }
+     .overlay
+     {
+         top: 5%;
+         left: 5%;
+     }
+     .cast-content
+     {
+         height: 350px;
+         font-size: 6px;
+     }
+     html
+     {
+         font-size: 6px !important;
+     } 
+ }
+
+ @media screen and (min-width:0px) and (max-width:400px) {
+     html
+     {
+         font-size: 4.5px !important;
+     }
+     .description-content
+     {
+         height: 80rem;
+     }
+     .bottom-icon
+     {
+         margin: 0px;
+     }
+     .trailer-content
+     {
+         height: 80rem;
+     }
+     .sec
+     {
+         height: 50vh;
+     }
  }
 
 
@@ -234,7 +318,7 @@ a.collapsed .readLess {
 {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     background-image: url("./assets/Netflix-background_1.jpg");
     overflow: hidden;
 }
@@ -267,6 +351,13 @@ a.collapsed .readLess {
     text-align: center;
     position: relative;
     
+}
+
+.movie[type='text']
+{
+    font-family: cursive;
+    font-size: large;
+    font-weight: bold;
 }
 
 .movie:hover
@@ -424,8 +515,7 @@ section .wave.wave4
     transform: translateY(-10px);
     
 }
-    /*-webkit-filter: blur(30px);
-    filter: blur(30px);*/
+
 .trend-b
 {
        opacity: 0;

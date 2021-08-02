@@ -20,7 +20,6 @@ function trend_loading() {
         success: function (response) {
             $('body').html(response);
             $(window).scrollTop(0);
-            console.log("working properly");
         },
         error: function () {
             alert('Invalid request');
@@ -39,7 +38,6 @@ function get_trending(api_key) {
         url: "https://api.themoviedb.org/3/trending/all/day?api_key=" + api_key,
         async: false,
         success: function (trend_mov) {
-            console.log("trending", trend_mov);
 
             for (i = 0; i < 20; i++) {
                 trend_id.push(trend_mov.results[i].id);

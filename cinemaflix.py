@@ -13,7 +13,7 @@ import pickle
 from collections import Counter
 
 app = Flask(__name__)
-#app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 # import the dataset
 
 rf_model = pickle.load(open('random_forest_model_2.pkl', 'rb'))
@@ -147,7 +147,6 @@ def trend_movie():
 @app.route('/correct', methods=["POST"])
 def correct():
     incorrect = request.form["nam"]
-    #corrected = correct_word(incorrect)
     corrected = list(map(correct_word, tokens(incorrect)))
     return corrected[0]
 
@@ -183,6 +182,7 @@ def submit_form():
     vote_count = request.form["vote_count"]
     genre = request.form["genre_list"]
     status = request.form["status"]
+    trailer = request.form["trailer_key"]
     release = request.form["release"]
     runtime = request.form["runtime"]
     poster = request.form["poster"]
@@ -212,16 +212,7 @@ def submit_form():
 
     reviewed_dic = getting_review(imdb_id)
 
-  # html_str = '<a href="#" class="read_more">Read More</a><span class="more_text">'
-  # updated_review = []
-  # for rev in reviewed_6:
-  #     if len(rev) > 100:
-  #         rev1 = rev[:100]+html_str+rev[100:]
-  #         updated_review.append(rev1+'</span>')
-  #     else:
-  #         updated_review.append(rev)
-
-    return render_template('cinemaflix_detail.html', title=movie_title, overview=overview, rating=rating, popularity=popularity, vote_count=vote_count, genre=genre, status=status, release=release, runtime=runtime, poster=poster, movie_poster_data=rec_movie_data, cast_details=cast_details, cast_description=cast_description, review=reviewed_dic)
+    return render_template('cinemaflix_detail.html', title=movie_title, overview=overview, rating=rating, popularity=popularity, vote_count=vote_count, genre=genre, status=status, trailer=trailer, release=release, runtime=runtime, poster=poster, movie_poster_data=rec_movie_data, cast_details=cast_details, cast_description=cast_description, review=reviewed_dic)
 
 
 if __name__ == '__main__':

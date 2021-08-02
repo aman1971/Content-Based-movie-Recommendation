@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Show movie</title>
-    <!--<link rel="stylesheet" href="../static/cinemaflix_detail.css">-->
-    <!-- Latest compiled and minified CSS -->
-    <!-- Latest compiled and minified CSS -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -23,28 +20,12 @@
         crossorigin="anonymous"></script>
 
 
-    <!--  <link rel="stylesheet"
-        href="	https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
-    <link rel="stylesheet"
-        href="	https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>-->
-
 
 
 </head>
 
 <body>
 
-    <!--<div class="form-group shadow-textarea">
-        <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off"
-            placeholder="Enter the moviename" required="required">
-        <button class="btn  btn-primary movie-button"
-            style="border-radius: 10%; box-shadow: 1px 1px 1px 1px black;">Enter</button>
-    </div>-->
     <div class="upper-box text-light">
         <h2>{{title}}</h2>
         <div style="color: orange; font-size: medium; font-weight: bold;"><span
@@ -53,12 +34,10 @@
 
     </div>
     <div class="movie-detail  container">
-        <!--<div class="movie-card " style="width: 300px; ">
-            <img src={{poster}} class="card-img" height="280px">
-        </div> -->
         <div class="top-poster">
-            <a href="" data-target="#trailer_model" data-toggle="modal">
+            <a href="" class="vid-open" data-target="#trailer_model" data-toggle="modal">
                 <img src={{poster}} class="cimg">
+                <div class="overlay"></div>
                 <i class="video-icon fa fa-play-circle" style="font-size: 48px;"></i>
             </a>
         </div>
@@ -72,24 +51,25 @@
             <h6 class="detail-h" id="runtime">RUNTIME:-&nbsp;{{runtime}}</h6>
             <h6 class="detail-h" id="status">STATUS:- &nbsp;{{status}}</h6>
         </div>
+
     </div>
 
-    <!-- <button class="btn btn-primary" data-target="#trailer_model" data-toggle="modal">view trailer</button>-->
 
     <div class="container trailer ">
         <div class="modal fade zoom-out" id="trailer_model" tabindex="-1" style="transition: 1s;overflow-y: hidden;">
             <div class="modal-dialog" style="margin-top: 150px;">
-                <div class="modal-content bg-primary text-light" style="position: relative;width: 980px;left: 30px;">
+                <div class="modal-content trailer-content text-light"
+                    style="background-color: blueviolet; position: relative;width: 98rem;">
                     <div class="modal-header">
-                        <h3>Rava last dragon</h3>
+                        <h3>{{title}}</h3>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <iframe width="980" height="500" src="https://www.youtube.com/embed/9BPMTr-NS9s">
+                        <iframe class="youtube" src="https://www.youtube.com/embed/{{trailer}}">
                         </iframe>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-warning" data-dismiss="modal">Close</button>
+                        <button type="submit" class="vid-close btn btn-warning" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -98,24 +78,23 @@
 
     <section class="section-carasoul">
         <div class="container">
-            <div class="text-primary text-center">
+            <div class="text-center" style="color: blueviolet;">
                 <h1 style="font-size: xx-large;"><span class="rev-sp">Movie Cast</span> </h1>
             </div>
             <div class="owl-carousel" id="slider">
                 {% for name,detail in cast_details.items() %}
                 <div class="content-area">
-                    <div class="content">
-                        <div class="card cast-card" style="width: 250px; ">
-                            <img src={{detail[2]}} class="card-img rounded-circle">
-                            <div class="card-body bg-warning">
+                    <div class="content cast-content">
+                        <div class="card cast-card">
+                            <img src={{detail[2]}} class="card-img cast-img rounded-circle">
+                            <div class="card-body cast-body bg-warning" style="position: relative;">
                                 <h5 class="card-header text-center">Original name :-&nbsp; {{name}}</h5>
                                 <h4 class="card-title text-center">Character name:-&nbsp;{{detail[1]}}</h4>
-                                <p class="card-text">Date-of-Birth : - {{detail[3]}}
-                                </p>
-                                <button class="btn btn-primary align-items-center" data-target="#{{detail[0]}}"
-                                    data-toggle="modal" style="left: 70px;">View more</button>
                             </div>
                         </div>
+                        <button class="btn align-items-center" data-target="#{{detail[0]}}" data-toggle="modal"
+                            style="left: 30px !important; padding: 0px; background-color: blueviolet;">View
+                            more</button>
                     </div>
                 </div>
                 {% endfor %}
@@ -129,10 +108,8 @@
         <div class="modal fade" id="{{detail[0]}}">
             <div class="modal-dialog modal-dialog-centered" style="margin-top: 150px;">
                 <!--modal-dialog-centered-->
-                <div class="modal-content bg-primary text-light" style="position: absolute;
-                overflow-y: scroll;
-                height: 600px;
-                width: 800px;">
+                <div class="modal-content description-content text-light"
+                    style="background-color: blueviolet;position: absolute; width: 80rem;">
                     <div class="modal-header">
                         <h3>{{name}}</h3>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -140,7 +117,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-xl-4 col-lg-4 col-md-4 col-4">
-                                <img src="{{detail[1]}}" style="width: 250px;">
+                                <img src="{{detail[1]}}" style="width: 25rem;">
                             </div>
                             <div class="col-xl-8 col-lg-8 col-md-8 col-8">
                                 <h2>DOB&nbsp;:-&nbsp;{{detail[2]}}</h2>
@@ -165,10 +142,11 @@
 
     <section class="review" style="position: relative;top: 250px;">
         <div class="container">
-            <div class="section-title text-primary text-center">
+            <div class="section-title text-center" style="color: blueviolet;z-index: 9;position: relative;">
                 <h1 style="font-size: xx-large;"><span class="rev-sp">Review</span></h1>
                 <p style="font-size: x-large;"><span class="rev-sp"> Sentiment analysis of review </span></p>
             </div>
+            <div class="overlay"></div>
             <div class="row">
                 {% for senti,rev in review.items() %}
                 <div class="col-lg-4 col-md-4 col-sm-4 col-6">
@@ -199,7 +177,7 @@
 
     <section id="team" class="team" style="top: 300px;">
         <div class="container">
-            <div class="section-title text-center text-primary">
+            <div class="section-title text-center " style="color: blueviolet;">
                 <h2 style="font-size: xx-large;"><span class="rev-sp">Recomended movie</span> </h>
             </div>
 
@@ -222,7 +200,8 @@
                             </div>
                         </div>
                         <div class="social text-light text-center" title="{{title}}" onclick="recommend_movie(this)">
-                            <a href="#" class="btn recomend_btn btn-primary btn-sm">click Me</a>
+                            <a href="#" class="btn recomend_btn btn-sm" style="background-color: blueviolet;">click
+                                Me</a>
                         </div>
                     </div>
                 </div>
@@ -238,19 +217,25 @@
                 $('#slider').owlCarousel({
                     loop: true,
                     margin: 15,
-                    nav: false,
+                    nav: true,
                     autoplay: true,
                     responsive: {
                         0: {
-                            items: 1
-                        },
-                        600: {
                             items: 2
                         },
+                        600: {
+                            items: 2,
+                        },
                         1000: {
-                            items: 3
+                            items: 3,
                         },
                     },
+                });
+                $('.vid-open').click(function () {
+                    $('.youtube').attr('src', 'https://www.youtube.com/embed/{{trailer}}');
+                });
+                $('.vid-close').click(function () {
+                    $('.youtube').attr('src', ' ');
                 });
             });
 

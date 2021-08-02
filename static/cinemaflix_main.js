@@ -2,14 +2,12 @@ $(function () {
     $("#autoComplete").autocomplete({
         minLength: 2,
         maxResults: 10,
-        //source: film,
         source: function (request, response) {
             var results = $.ui.autocomplete.filter(film, request.term);
             response(results.slice(0, this.options.maxResults));
         }
     });
 
-    //correct_word();
 
     const enter = document.getElementById('autoComplete');
 
@@ -28,11 +26,9 @@ $(function () {
 
     $('.movie-button').on('click', function () {
         var api_key = '1a2d51b966ece85423555707eb93beaf';
-        //var title = $('.movie').val();
         var title = correct_word();
         var corrected_arr = corrected_movie(title);
 
-        console.log(title, 't');
         if (title == "") {
             $('.result').css('display', 'none');
             $('.fail').css('display', 'block');
@@ -45,7 +41,6 @@ $(function () {
             $('.form-group').css('top', '50px');
             $('.head').css('top', '0px');
             $('.loading').css('display', 'block');
-            //load_details(api_key, title);
             correct_load(api_key, corrected_arr);
         }
 
@@ -59,7 +54,6 @@ function correct_word() {
     var input_value = $("#autoComplete").val();
     var correct_text;
     if (input_value == "") {
-        console.log('not got');
     } else {
         $.ajax({
             type: 'POST',
@@ -67,7 +61,6 @@ function correct_word() {
             async: false,
             data: { 'nam': input_value },
             success: function (corrected) {
-                console.log('corrected:' + corrected);
                 correct_text = corrected;
             },
         });
@@ -98,7 +91,6 @@ function recommend_movie(e) {
     var title = e.getAttribute('title');
     $('.wave').css('display', 'none');
     $('.trend').css('display', 'none');
-    //$('.sec').attr('class', 'sec1');
     $('.head').css('top', '0px');
     $('.loading').css('display', 'block');
     load_details(api_key, title);
@@ -118,7 +110,6 @@ function load_details(api_key, title) {
                 $('.result').css('display', 'block');
                 var movie_id = movie.results[0].id;
                 var movie_title = movie.results[0].original_title;
-                console.log('all ok', movie_id, movie_title);
                 recomend_movie(api_key, movie_id, movie_title);
             }
         },
@@ -161,8 +152,6 @@ function get_detail(movie_arr, api_key, movie_id, movie_title) {
         success: function (movie_details) {
             var movie_id1 = movie_details.id;
             var movie_title1 = movie_details.original_title;
-            console.log('list :- ' + movie_id1 + ' ' + movie_title1);
-            console.log(movie_details);
             details_loading(movie_details, api_key, movie_id, movie_title, movie_arr);
         }
 
@@ -190,11 +179,8 @@ function details_loading(movie_details, api_key, movie_id, movie_title, movie_ar
     var movie_poster = get_poster(api_key, movie_arr);
     var cast_detail = get_cast_detail(movie_id, api_key);
     var cast_individual = get_cast_individual(cast_detail, api_key);
-
-    console.log(overview + ' rating:- ' + rating);
-    console.log(genre_list);
-    console.log(release + ' runtime:- ' + runtime);
-    console.log(movie_details);
+    var tmdb_id = movie_details.id;
+    var trailer_key = load_trailer(tmdb_id, api_key);
 
     details_object = {
         'movie_title': movie_title,
@@ -206,6 +192,7 @@ function details_loading(movie_details, api_key, movie_id, movie_title, movie_ar
         'release': release,
         'runtime': runtime,
         'status': status,
+        'trailer_key': trailer_key,
         'poster': poster,
         'genre_list': my_genre,
         'rec_movie': JSON.stringify(movie_arr),
@@ -341,7 +328,6 @@ function corrected_loading(api_key, correct_arr) {
             $('#autoComplete').val('');
             $('.loading').css('display', 'none');
             $(window).scrollTop(0);
-            console.log("working properly1");
         },
         error: function () {
             alert('Invalid request');
@@ -362,8 +348,6 @@ function get_corrected(api_key, correct_arr) {
             url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&query=' + correct_arr[i],
             async: false,
             success: function (movie_det) {
-                console.log("corrected movie working");
-                console.log(movie_det);
                 try {
                     corrected_id.push(movie_det.results[0].id);
                     corrected_title.push(movie_det.results[0].original_title);
@@ -384,3 +368,15 @@ function get_corrected(api_key, correct_arr) {
     return { 'corrected_id': corrected_id, 'corrected_title': corrected_title, 'corrected_poster': corrected_poster, 'corrected_desc': corrected_desc }
 }
 
+function load_trailer(movie_id, api_key) {
+    var trailer_id;
+    $.ajax({
+        type: 'GET',
+        url: "https://api.themoviedb.org/3/movie/" + movie_id + "/videos?api_key=" + api_key,
+        async: false,
+        success: function (trailer) {
+            trailer_id = trailer.results[0].key;
+        },
+    });
+    return trailer_id;
+}
