@@ -25,7 +25,7 @@ $(function () {
     enter.addEventListener('input', inputhandler);
 
     $('.movie-button').on('click', function () {
-        var api_key = '1a2d51b966ece85423555707eb93beaf';
+        var api_key = 'API KEY';
         var title = correct_word();
         var corrected_arr = corrected_movie(title);
 
@@ -87,7 +87,7 @@ function corrected_movie(value) {
 }
 
 function recommend_movie(e) {
-    var api_key = '1a2d51b966ece85423555707eb93beaf';
+    var api_key = 'API KEY';
     var title = e.getAttribute('title');
     $('.wave').css('display', 'none');
     $('.trend').css('display', 'none');
