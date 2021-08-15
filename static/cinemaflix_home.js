@@ -3,7 +3,7 @@ $(function () {
 });
 
 function trend_loading() {
-    var api_key = '1a2d51b966ece85423555707eb93beaf';
+    var api_key = 'API KEY';
     var trend_detail = get_trending(api_key);
 
     trending_details = {
