@@ -13,7 +13,7 @@ import pickle
 from collections import Counter
 
 app = Flask(__name__)
-
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 # import the dataset
 
 rf_model = pickle.load(open('random_forest_model_2.pkl', 'rb'))
@@ -216,4 +216,7 @@ def submit_form():
 
 
 if __name__ == '__main__':
+
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.run(debug=True)

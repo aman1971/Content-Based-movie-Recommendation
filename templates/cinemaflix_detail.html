@@ -35,9 +35,10 @@
     </div>
     <div class="movie-detail  container">
         <div class="top-poster">
-            <a href="" class="vid-open" data-target="#trailer_model" data-toggle="modal">
+            <a href="" class="vid-open" data-target="#trailer_model" data-toggle="modal" data-backdrop="static"
+                data-keyboard="false">
                 <img src={{poster}} class="cimg">
-                <div class="overlay"></div>
+                <!--<div class="overlay"></div>-->
                 <i class="video-icon fa fa-play-circle" style="font-size: 48px;"></i>
             </a>
         </div>
@@ -50,6 +51,7 @@
             <h6 class="detail-h" id="date">RELEASE DATE:&nbsp; {{release}}</h6>
             <h6 class="detail-h" id="runtime">RUNTIME:-&nbsp;{{runtime}}</h6>
             <h6 class="detail-h" id="status">STATUS:- &nbsp;{{status}}</h6>
+            <div class="overlay" style="z-index: -1;"></div>
         </div>
 
     </div>
@@ -62,7 +64,7 @@
                     style="background-color: blueviolet; position: relative;width: 98rem;">
                     <div class="modal-header">
                         <h3>{{title}}</h3>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close vid-close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <iframe class="youtube" src="https://www.youtube.com/embed/{{trailer}}">
@@ -236,6 +238,7 @@
                 });
                 $('.vid-close').click(function () {
                     $('.youtube').attr('src', ' ');
+
                 });
             });
 

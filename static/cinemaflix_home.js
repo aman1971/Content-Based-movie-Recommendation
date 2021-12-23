@@ -52,3 +52,5 @@ function get_trending(api_key) {
     });
     return { 'trend_id': trend_id, 'trend_title': trend_title, 'trend_poster': trend_poster }
 }
+
+

@@ -3,10 +3,32 @@
     padding: 0;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  body::-webkit-scrollbar-track {
+    background: black;        /* color of the tracking area */
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: violet;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid violet;  /* creates padding around scroll thumb */
+  }
+
+/*::-webkit-scrollbar-track {background: black;}  
+::-webkit-scrollbar{width: 10px;border-left:1px solid black;}
+::-webkit-scrollbar-thumb{background-color:violet;}  */
+
+.corrected-card::-webkit-scrollbar{display: none;}
+
 html
 {
     font-size: 10px;
 }
+
+/*.scrollable-element {
+    scrollbar-color: black violet;
+  }*/
 
 .detail_body1
 {
@@ -146,12 +168,14 @@ a.collapsed .readLess {
      background-color:black;
  }
 
+ 
  .corrected-card
  {
     display: flex;
-     overflow-y: auto;
-      flex-direction: column;
-      flex-wrap: nowrap !important;
+    overflow-y: auto;
+    flex-direction: column;
+    flex-wrap: nowrap !important;
+   /* scrollbar-color: black violet;*/
  }
 
  .corrected-detail
@@ -162,6 +186,7 @@ a.collapsed .readLess {
     flex-shrink: 0;
     border: none !important;
     margin: 50px;
+  /*  scrollbar-color: black violet;*/
  }
 
  .corrected-img
@@ -189,7 +214,9 @@ a.collapsed .readLess {
 
 .bottom-box
  {
-     background-color: black;
+     background-color: violet;
+     background: linear-gradient(
+    17deg, transparent,#261926,#aa30be);
      position: fixed;
      z-index: 99;
      width: 100%;
@@ -203,7 +230,7 @@ a.collapsed .readLess {
  .video-icon
  {
     transform: translateY(-200px);
-    color: darkviolet;
+    color: whitesmoke;
     position: relative;
     left: 40%;
     z-index: 99;
@@ -306,9 +333,13 @@ a.collapsed .readLess {
      {
          height: 80rem;
      }
-     .sec
+     .form-group
      {
-         height: 50vh;
+         top: 300px;
+     }
+     .head
+     {
+         top: 250px;
      }
  }
 
@@ -318,9 +349,16 @@ a.collapsed .readLess {
 {
     position: relative;
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     background-image: url("./assets/Netflix-background_1.jpg");
     overflow: hidden;
+}
+
+@media  screen and (max-width:400px) {
+    .sec{
+        width: 100%;
+        height: 50vh !important;
+    }
 }
 
 .sec1{
@@ -417,7 +455,7 @@ a.collapsed .readLess {
 section .wave.wave1
 {
     animation: animate 30s linear infinite;
-    z-index: 1000;
+    z-index: 4;
     opacity: 1;
     animation-delay: 0s;
     bottom: 0;
@@ -425,7 +463,7 @@ section .wave.wave1
 section .wave.wave2
 {
     animation: animate2 15s linear infinite;
-    z-index: 999;
+    z-index: 3;
     opacity: 0.5;
     animation-delay: -5s;
     bottom: 10px;
@@ -433,7 +471,7 @@ section .wave.wave2
 section .wave.wave3
 {
     animation: animate 30s linear infinite;
-    z-index: 998;
+    z-index: 2;
     opacity: 0.2;
     animation-delay: -2s;
     bottom: 15px;
@@ -441,7 +479,7 @@ section .wave.wave3
 section .wave.wave4
 {
     animation: animate2 5s linear infinite;
-    z-index: 997;
+    z-index: 1;
     opacity: 0.7;
     animation-delay: -5s;
     bottom: 20px;

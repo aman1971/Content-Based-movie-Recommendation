@@ -24,6 +24,12 @@ $(function () {
 
     enter.addEventListener('input', inputhandler);
 
+    $('#autoComplete').keypress(function (e) {
+        if (e.which == 13) {
+            $('.movie-button').click();
+        }
+    });
+
     $('.movie-button').on('click', function () {
         var api_key = '1a2d51b966ece85423555707eb93beaf';
         var title = correct_word();
@@ -380,3 +386,4 @@ function load_trailer(movie_id, api_key) {
     });
     return trailer_id;
 }
+

@@ -10,19 +10,22 @@
 
 <body>
     <section class="corrected-movie" style="position: relative; top: 100px;">
+        <button class="btn btn-outline-light btn-lg"
+            style="border-radius: 50%;background-color: black; box-shadow: 1px 1px 1px 1px black;"><i
+                class="fa fa-angle-down"></i></button>
         <div class="container corrected-card">
             {% for title,detail in corrected_movie.items() %}
             <div class="corrected-detail">
                 <div class="corrected-img" style="height: 25rem;width: 16rem;"><a href='javascript:;'
                         onclick='recommend_movie(this);' title="{{title}}"><img src="{{detail[0]}}"
                             style="position: relative;height: 250px;"></a>
-                    <button class="btn " style="background-color: blueviolet;" onclick='recommend_movie(this);'
-                        title="{{title}}">Click
+                    <button class="btn " style="background-color: blueviolet; color: black;"
+                        onclick='recommend_movie(this);' title="{{title}}">Click
                         Here</button>
                 </div>
                 <div style="position: relative;left: 150px;width: 60%;">
-                    <h2 style="position: relative;z-index: 9;"><span class="text-dark"
-                            style="background-color: blueviolet;">{{title}}</span></h2>
+                    <h2 style="position: relative;z-index: 9;"><span
+                            style="background-color: #a35be5; color: black;">&nbsp;{{title}}&nbsp;</span></h2>
                     <h4 style="color: white; position: relative; z-index: 9;">{{detail[1][:200]}}....</h4>
                     <div class="overlay"></div>
                 </div>
@@ -30,6 +33,8 @@
             {% endfor %}
         </div>
     </section>
+
+
 </body>
 
 </html>
