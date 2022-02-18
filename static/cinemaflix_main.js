@@ -386,7 +386,3 @@ function load_trailer(movie_id, api_key) {
     });
     return trailer_id;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
