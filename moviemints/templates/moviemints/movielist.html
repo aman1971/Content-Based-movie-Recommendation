@@ -1,0 +1,21 @@
+{% extends 'moviemints/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="movie_list">
+    {% for movie in movie_name_list %}
+    <div class="movie_list_cover">
+        <div class="movie_list_card">
+            <img class="ml_card_img" src="{{movie.poster_url}}" alt="">
+            <a class="btn" href="{% url 'movie_detail' movie.movie_id %}">Click Here</a>
+        </div>
+        <div class="movie_list_desc">
+            <h2>{{movie.movie_name}}</h2>
+            <p>{{movie.overview}}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

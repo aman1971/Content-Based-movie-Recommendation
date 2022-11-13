@@ -1,0 +1,395 @@
+.nav_bar{
+    background-color: aqua;
+    padding: 2%;
+    background-image: linear-gradient(to right bottom ,rgba(126, 213, 111, 0.801),rgba(40, 180, 133, 0.801));
+    margin: -7px;
+}
+
+.nav_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_title{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.nav_input{
+    width: 20%;
+}
+
+.nav_bar_search{
+    border: 2px solid black;
+    border-radius: 50px;
+    width: 250px;
+    height: 28px;
+    background-image: url('searchicon.gif');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: larger;
+}
+
+.main_content{
+    background-color:#DEF9F0;
+    height: 270px;
+    width: 1122px;
+    top: 26%;
+    left: 50%;
+    position: relative;
+    /* left: 159px;
+    top: 162px; */
+    border-radius: 30px;
+    transform: translate(-50%,-50%);
+    box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.25);
+
+}
+
+.div_main_content{
+    display: grid;
+    justify-content: center;
+}
+
+.div_quote{
+    text-align: center;
+    font-size: x-large;
+    font-weight: inherit;
+    font-style: oblique;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main_content_search{
+    height: 50px;
+    width: 960px;
+    position: relative;
+    top: 15px;
+    border-radius: 50px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.search_btn{
+    position: relative;
+    top: 55px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    font-size: larger;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.trend_card_cover{
+    position: relative;
+    top: 38%;
+    display: flex;
+    transform: translate(-50%,-50%);
+    left:50%;
+    justify-content: space-around;
+}
+
+.trend_card{
+    display: flex;
+    overflow-x: scroll;
+    width: 80%;
+    scroll-behavior: smooth;
+}
+
+.scroll_btn{
+    position: relative;
+    top: 150px;
+    height: 30px;
+    font-weight: bolder;
+    color: white;
+    font-size: large;
+    background-color: black;
+    border-radius: 18px;
+}
+
+.div_card{
+    flex-shrink: 0;
+    box-shadow: 15px 15px 100px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 20px;
+    transition: all .2s ease-in-out;
+    background-color: azure;
+    opacity: 1;
+}
+
+.div_card:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.div_card_img{
+    width: 200px;
+    height: 300px;
+}
+
+.foot{
+    background-color:#73C18AB2;
+    height: 135px;
+    top: 250px;
+    position: relative;
+}
+
+.div_foot{
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-around; */
+}
+
+.div_foot_out{
+    display: grid;
+    justify-content: center;
+}
+
+.div_foot>div{
+    margin: 5px;
+}
+
+.div_name{
+    position: relative;
+    text-align: center;
+}
+
+/* movie_list page css */
+
+.movie_list{
+    display: grid;
+    row-gap: 50px;
+}
+
+.movie_list_cover{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 20px;
+}
+
+.movie_list_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie_list_desc{
+    width: 50%;
+}
+
+.ml_card_img{
+    height: 240px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* movie_detail css */
+.name{
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+}
+
+.div_detail_content{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 40px;
+}
+
+.div_detail_desc{
+    width: 50%;
+}
+
+.div_detail_img{
+    display: flex;
+    align-items: center;
+}
+
+.detail_img{
+    height: 240px;
+    width: 150px;
+    border-radius: 15px;
+}
+
+#trailer_background{ 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;  
+    background-color: rgba(0,0,0,0.4);
+}
+
+.trailer_cover{
+    position: fixed;
+    height: 80%;
+    width: 70%;
+    top: 11%;
+    transform: translate(20%,0%);
+    justify-content: center;
+    z-index: 9;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,0.4);
+}
+
+
+.iframe_trailer{
+    height: 100%;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#close_btn{
+    background-color: black;
+    position: relative;
+    color: white;
+    left: 50%;
+}
+
+.cast{
+    position: relative;
+    top: 45%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    width: 85%;
+}
+
+.cast_text{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.div_cast_card{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: scroll;
+    width: 85%;
+    column-gap: 90px;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.cast_card{
+    height: 350px;
+    width: 200px;
+    background-color: #DEF9F0;
+    border-radius: 10px;
+    display: grid;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cast_card_img{
+    height: 150px;
+    position: relative;
+    border-radius: 35px;
+    top: 15%;
+    width: 100px;
+}
+
+.cast_scroll_btn{
+    font-weight: bolder;
+    color: white;
+    font-size: large;
+    background-color: black;
+    border-radius: 18px;
+    position: relative;
+    top: 150px;
+    height: 30px;
+}
+
+.cast_card_cover{
+    display: flex;
+    justify-content: space-between;
+    /* position: relative;
+    top: 45%;
+    transform: translate(-50%,-50%);
+    left:50%;
+    width: 85%; */
+}
+
+/* review css */
+.review{
+    background-color:#DEF9F0;
+    height: 55%;
+    top: 55%;
+    left: 50%;
+    position: relative;
+    border-radius: 30px;
+    transform: translate(-50%,-50%);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.review_cover{
+    top: 12%;
+    position: relative;
+}
+
+.div_review{
+    display: flex;
+    position: relative;
+    left: 6%;
+    top: 5%;
+}
+
+.review_p{
+    width: 75%;
+}
+
+/* Recommend section css */
+.recommend{
+    background-color:#DEF9F0;
+    top: 95%;
+    left: 50%;
+    position: relative;
+    border-radius: 30px;
+    transform: translate(-50%,-50%);
+    overflow: auto;
+}
+
+.recommend_card_cover{
+    /* background-color:#DEF9F0;
+    top: 95%;
+    left: 50%;
+    position: relative;
+    border-radius: 30px;
+    transform: translate(-50%,-50%);
+    overflow: auto; */
+    display: grid;
+    row-gap: 20px;
+}
+
+.div_recommend{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.recommend_img{
+    height: 400px;
+    width: 285px;
+    border-radius: 15px;
+}
+
+.a_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+   background-color: black;
+   color: white;
+   padding: 14px 25px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   border-radius: 30px;
+}

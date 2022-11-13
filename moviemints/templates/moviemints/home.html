@@ -1,0 +1,31 @@
+{% extends 'moviemints/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main_content">
+    <div class="div_main_content">
+        <div class="div_quote"> 
+            <p>
+                <span>CINEMA is a matter of what's in the frame and what's out.</span> <br>
+                <span style="left:30%; position:relative;">~Martin Scorsese</span>
+            </p>
+        </div>
+        <form action="/moviemints/movielist/" method="get">
+            <div>
+                <input class="main_content_search" name="movie_name" type="text">
+            </div>
+           <button type="submit" class="search_btn">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="trend_card_cover">
+    <button class="scroll_btn" id="left" onclick="rightScroll()">&lt;&lt;</button>
+    <div class="trend_card">
+        {% for trend_detail in trend_details %}
+        <div class="div_card"><img class="div_card_img" src="{{trend_detail.trend_poster}}"></div>
+        {% endfor %}
+    </div>
+    <button class="scroll_btn" id="right" onclick="leftScroll()">&gt;&gt;</button>
+</div>
+
+{% endblock %}

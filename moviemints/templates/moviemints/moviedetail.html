@@ -1,0 +1,111 @@
+{% extends 'moviemints/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main_content" style="height:400px;top:36%;">
+    <div class="div_detail_content">
+       <div class="div_detail_img">
+            <img class="detail_img" src="{{movie_details.poster_url}}" alt="">
+            <button class="btn" id="open_btn" onclick="openClose()" >Watch Trailer</button>
+            <!-- <a class="btn" id="open_btn" onclick="openClose()" >Watch Trailer</a> -->
+       </div>
+       <div class="div_detail_desc">
+            <p><span class="name">Title :</span> {{movie_details.movie_name}}</p>
+            <p><span class="name">Overview :</span> {{movie_details.overview}}</p>
+            <p><span class="name">Rating :</span> {{movie_details.rating}}</p>
+            <p><span class="name">Genre :</span> {{movie_details.genre}}</p>
+            <p><span class="name">Release Date :</span> {{movie_details..release_date}}</p>
+            <p><span class="name">Runtime :</span> {{movie_details.runtime}}</p>
+            <p><span class="name">Status :</span> {{movie_details.status}}</p>
+       </div>
+    </div>
+</div>
+
+<!-- Watch Trailer -->
+<div id="trailer_background" style="display:none;">
+    <div class="trailer_cover" id="trailer" style="display:none;">
+        <iframe class="iframe_trailer"
+            src="https://www.youtube.com/embed/{{trailer_key}}">
+        </iframe>
+        <button class="btn" id="close_btn" onclick="openClose()" >Close</button>
+    </div>
+</div>
+
+<!-- Cast Detail -->
+<div class="cast">
+    <h2 style="border-left:5px solid;">Cast ></h2>
+    <div class="cast_card_cover">
+        <button class="cast_scroll_btn" id="left" onclick="rightScroll()">&lt;&lt;</button>
+        <div class="div_cast_card">
+            {% for cast_detail in cast_details %}
+            <div class="cast_card">
+                <img class="cast_card_img" src="{{cast_detail.cast_profile}}">
+                <p class="cast_text">{{cast_detail.cast_name}}</p>
+                <p class="cast_text">{{cast_detail.cast_char}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="cast_scroll_btn" id="right" onclick="leftScroll()">&gt;&gt;</button>
+    </div>
+</div>
+
+
+<!--Review section-->
+<div class="review">
+    <h2 style="text-align: center;">Review</h2>
+    <div class="review_cover">
+        <div class="div_review">
+            {% for rev in review_list.first_5 %}
+            <div class="review_card">
+                <span class="name">Sentiment: {{rev.review_status}}</span>
+                <p class="review_p">{{rev.review|slice:':150'}}<span id="dots">...</span><span id="more" style="display: none;">
+                    {{rev.review|slice:'150:'}}</span>
+                </p>
+                <button onclick="readMoLe()" id="myBtn">Read more</button>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="div_review">
+            {% for rev in review_list.first_5 %}
+            <div class="review_card">
+                <span class="name">Sentiment: {{rev.review_status}}</span>
+                <p class="review_p">{{rev.review|slice:':150'}}<span id="dots">...</span><span id="more" style="display: none;">
+                    {{rev.review|slice:'150:'}}</span>
+                </p>
+                <button onclick="readMoLe()" id="myBtn">Read more</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<!--Recommended movie Section-->
+<div class="recommend">
+    <h2 style="text-align: center;">Recommended Movie</h2>
+    <div class="recommend_card_cover">
+        <div class="div_recommend">
+            {% for movie in recommended_movie.first_5 %}
+            <div class="recommend_card">
+                <img class="recommend_img" src="{{movie.movie_poster}}">
+                <div class="a_btn">
+                    <a class="btn" href="{% url 'movie_detail' movie.movie_id %}">Click Here</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="div_recommend">
+            {% for movie in recommended_movie.last_5 %}
+            <div class="recommend_card">
+                <img class="recommend_img" src="{{movie.movie_poster}}">
+                <div class="a_btn">
+                    <a class="btn" href="{% url 'movie_detail' movie.movie_id %}">Click Here</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
