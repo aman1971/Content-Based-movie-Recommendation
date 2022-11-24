@@ -17,6 +17,8 @@ def home(request):
     url = "https://api.themoviedb.org/3/trending/all/day?"
     PARAMS = {'api_key':api}
     try:
+        movie_name = MovieData.objects.all().values('movie_name')
+
         trend_data = requests.get(url=url,params= PARAMS)
         trend_data = trend_data.json()
         trend_details = []
@@ -25,7 +27,7 @@ def home(request):
             trend_dict = {'trend_id':trend_data['results'][i]['id'], 'trend_title':trend_data['results'][i]['id'], 
                     'trend_poster':f"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{trend_data['results'][i]['poster_path']}"}
             trend_details.append(trend_dict)
-        context = {'trend_details':trend_details}
+        context = {'trend_details':trend_details, 'movie_name':movie_name}
         return render(request,'moviemints/home.html', context)
     except Exception as Argument:
         logging.exception('error at tranding')
@@ -156,43 +158,3 @@ def get_review(imdb_id):
     # reviewed_dict = {reviewed_6[i]: review_status[i]
     #                  for i in range(len(reviewed_6))}
     # return reviewed_dict
-
-# def Import_csv(request):
-#     print('s')               
-#     try:
-#         if request.method == 'POST' and request.FILES['myfile']:
-          
-#             myfile = request.FILES['myfile']        
-#             fs = FileSystemStorage()
-#             filename = fs.save(myfile.name, myfile)
-#             uploaded_file_url = fs.url(filename)
-#             excel_file = uploaded_file_url
-#             print(excel_file)
-#             movieexceldata = pd.read_csv("."+excel_file,encoding='latin1')
-#             dbframe = movieexceldata
-#             #dbframe['release_date'] = dbframe['release_date'].replace({np.NaN:None})
-#             for dbframe in dbframe.itertuples():
-#                 try:
-#                     check_exist_id = MovieIndices.objects.get(movie_index = dbframe.index)
-#                 except:
-#                     check_exist_id = False
-#                 if check_exist_id==False:
-#                     # new_moviedata = MovieData.objects.get(movie_id=dbframe.movie_id)
-#                     obj = MovieIndices.objects.create(movie_index=dbframe.index, movie_id=dbframe.movie_id, movie_name=dbframe.movie_name)
-#                     obj.save()
-#                 else: 
-#                     continue
-#             print('done')
-
-#             return render(request, 'moviemints/importexcel.html', {
-#                 'uploaded_file_url': uploaded_file_url
-#             })
-#     except Exception as identifier:            
-#         print(identifier)
-     
-#     return render(request, 'moviemints/importexcel.html',{})
-
-# def del_rec(request):
-#     obj = MovieIndices.objects.all()
-#     obj.delete()
-#     return HttpResponse('all obj deleted')
